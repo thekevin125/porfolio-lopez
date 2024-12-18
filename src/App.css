@@ -1,0 +1,19 @@
+body {
+  overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0.4rem;
+  background-color: rgb(37, 37, 37);
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(75, 71, 71);
+}

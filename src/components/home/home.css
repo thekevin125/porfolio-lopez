@@ -1,0 +1,33 @@
+.type {
+  display: inline-flex;
+}
+
+.type span {
+  word-break: break-all;
+  height: 1.2em;
+  width: 0%;
+  overflow: hidden;
+  animation: t 2s linear infinite alternate;
+}
+.type span:before {
+  content: " ";
+  display: inline-block;
+}
+
+@keyframes t {
+  90%,
+  100% {
+    width: 100%;
+  }
+}
+
+.container_home {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../images/work.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.container_home:hover {
+  background-size: scale(2);
+}
