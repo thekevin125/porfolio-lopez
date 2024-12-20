@@ -9,6 +9,7 @@ const Skills = () => {
   const { visible, ref } = useVisibility();
   const [container, setContainer] = useState({});
   const [itemAmination, setItemAmination] = useState({});
+
   useEffect(() => {
     if (visible) {
       setContainer({
@@ -32,14 +33,14 @@ const Skills = () => {
   }, [visible]);
 
   return (
-    <section id="HABILIDADES" className="pb-8">
+    <section id="HABILIDADES" className="pb-8 section-container">
       <SectionTitle title={"HABILIDADES"} />
       <motion.div
         ref={ref}
         variants={container}
         initial="hidden"
         animate="show"
-        className="flex flex-wrap gap-2  w-[80%] mx-auto">
+        className="flex flex-wrap gap-2 justify-center w-[80%] mx-auto">
         {technologies.map((item, index) => (
           <TechnologyItem
             key={index}

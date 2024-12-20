@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import me from "../../images/me.jpg";
-import { data } from "../../utils/consts";
-import SocialNetworks from "../home/SocialNetworks";
-import { motion } from "framer-motion";
-import { Link } from "react-scroll";
 import { useDispatch, useSelector } from "react-redux";
 import { navbarStatus, widthSizeStatus } from "../../features/navbarSlice";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import "./navbar.css";
+import SocialNetworks from "../home/SocialNetworks";
+
 const Navbar = () => {
   const dispatch = useDispatch();
   const currentColor = useSelector((state) => state.color.currentColor);
@@ -45,16 +45,12 @@ const Navbar = () => {
   };
 
   return (
-    <div className="h-screen w-full flex flex-col ">
+    <div className="h-screen w-full flex flex-col">
       <div className="flex flex-col items-center pt-4">
-        <div className=" mb-2 p-2 rounded-full  ">
-          <img
-            src={me}
-            alt=""
-            className="rounded-full w-44 h-44 object-cover"
-          />
+        <div className="mb-2 p-2 rounded-full">
+          <img src={me} alt="" className="rounded-full w-44 h-44 object-cover" />
         </div>
-        <h3 className="text-2xl text-teal-700 dark:text-cyan-300 font-cursive ">
+        <h3 className="text-2xl text-teal-700 dark:text-cyan-300 font-cursive">
           Desarrollador full stack
         </h3>
         <div className="pt-4">
@@ -66,32 +62,77 @@ const Navbar = () => {
           variants={container}
           initial="hidden"
           animate="show"
-          className=" flex flex-col gap-4 dark:text-cyan-100 font-sans">
-          {data?.map((item, index) => (
-            <motion.div key={index} variants={itemAnimation}>
-              <Link
-                activeClass={`active && ${currentColor?.text} line-through `}
-                to={item?.name}
-                spy={true}
-                smooth={true}
-                offset={0}
-                duration={500}
-                key={index}
-                className="flex  gap-2 cursor-pointer items-center hover:text-cyan-400 font-sansSerif font-semibold dark:font-normal tracking-wider "
-                onClick={() => {
-                  if (widthSizeOn <= 900) {
-                    dispatch(navbarStatus(false));
-                  }
-                }}>
-                <span>{item?.icon}</span>
-                <span>{item?.name}</span>
-              </Link>
-            </motion.div>
-          ))}
+          className="flex flex-col gap-4 dark:text-cyan-100 font-sans"
+        >
+          <motion.div variants={itemAnimation}>
+            <Link
+              to="/"
+              className="flex gap-2 cursor-pointer items-center hover:text-cyan-400 font-sansSerif font-semibold dark:font-normal tracking-wider"
+              onClick={() => {
+                if (widthSizeOn <= 900) {
+                  dispatch(navbarStatus(false));
+                }
+              }}
+            >
+              <span>Inicio</span>
+            </Link>
+          </motion.div>
+          <motion.div variants={itemAnimation}>
+            <Link
+              to="/about"
+              className="flex gap-2 cursor-pointer items-center hover:text-cyan-400 font-sansSerif font-semibold dark:font-normal tracking-wider"
+              onClick={() => {
+                if (widthSizeOn <= 900) {
+                  dispatch(navbarStatus(false));
+                }
+              }}
+            >
+              <span>Sobre mí</span>
+            </Link>
+          </motion.div>
+          <motion.div variants={itemAnimation}>
+            <Link
+              to="/projects"
+              className="flex gap-2 cursor-pointer items-center hover:text-cyan-400 font-sansSerif font-semibold dark:font-normal tracking-wider"
+              onClick={() => {
+                if (widthSizeOn <= 900) {
+                  dispatch(navbarStatus(false));
+                }
+              }}
+            >
+              <span>Proyectos</span>
+            </Link>
+          </motion.div>
+          <motion.div variants={itemAnimation}>
+            <Link
+              to="/skills"
+              className="flex gap-2 cursor-pointer items-center hover:text-cyan-400 font-sansSerif font-semibold dark:font-normal tracking-wider"
+              onClick={() => {
+                if (widthSizeOn <= 900) {
+                  dispatch(navbarStatus(false));
+                }
+              }}
+            >
+              <span>Habilidades</span>
+            </Link>
+          </motion.div>
+          <motion.div variants={itemAnimation}>
+            <Link
+              to="/contact"
+              className="flex gap-2 cursor-pointer items-center hover:text-cyan-400 font-sansSerif font-semibold dark:font-normal tracking-wider"
+              onClick={() => {
+                if (widthSizeOn <= 900) {
+                  dispatch(navbarStatus(false));
+                }
+              }}
+            >
+              <span>Contacto</span>
+            </Link>
+          </motion.div>
         </motion.span>
       </div>
       <span className="absolute bottom-0 px-6 dark:text-slate-400 text-slate-600">
-        © Copyright 2023 | lopez
+        © Copyright 2023 | Lopez
       </span>
     </div>
   );

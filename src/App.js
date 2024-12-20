@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import About from "./components/about/About";
 import ConfigurationOptions from "./components/configurationOptions/ConfigurationOptions";
 import Contac from "./components/contac/Contac";
@@ -15,7 +16,7 @@ function App() {
   const themeColor = useSelector((state) => state.theme.themeColor);
 
   return (
-    <div>
+    <Router>
       <div className={`flex ${themeColor === "dark" ? "dark" : ""}`}>
         <div
           className={` ${
@@ -31,11 +32,13 @@ function App() {
             activeNavbar ? "md:ml-72 md:duration-1000 md:transition-all" : ""
           } `}
         >
-          <Home />
-          <About />
-          <Proyects />
-          <Skills />
-          <Contac />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/projects" element={<Proyects />} />
+            <Route path="/skills" element={<Skills />} />
+            <Route path="/contact" element={<Contac />} />
+          </Routes>
         </div>
         <div className="fixed bottom-4 right-4 z-50">
           <FloatingButton />
@@ -44,7 +47,7 @@ function App() {
           <ConfigurationOptions />
         </div>
       </div>
-    </div>
+    </Router>
   );
 }
 

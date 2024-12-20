@@ -1,13 +1,21 @@
-body {
+html, body {
   overflow-x: hidden;
+  background-color: #ffffff; /* Color de fondo blanco */
+  color: #000000; /* Color del texto negro */
+  height: 100%;
+  margin: 0; /* Eliminar márgenes */
+  padding: 0; /* Eliminar padding */
 }
+
 
 html {
   overflow-x: hidden;
+  background-color: #ffffff; /* Color de fondo blanco */
 }
+
 ::-webkit-scrollbar {
   width: 0.4rem;
-  background-color: rgb(37, 37, 37);
+  background-color: #ffffff;
 }
 
 ::-webkit-scrollbar-button {
@@ -16,4 +24,12 @@ html {
 
 ::-webkit-scrollbar-thumb {
   background-color: rgb(75, 71, 71);
+
+}
+.section-container {
+  min-height: 100vh; /* Asegura que la sección cubra al menos la altura de la pantalla */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-content: center;
 }

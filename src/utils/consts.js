@@ -32,11 +32,14 @@ import proyect4_1 from "../images/proyect4_1.png";
 import proyect4_2 from "../images/proyect4_2.png";
 import proyect4_3 from "../images/proyect4_3.png";
 
+import proyect from "../images/proyectokevin.png";
+import proyect1 from "../images/nn .png";
 
 
 
 
 import uiTravel from "../images/travel.png";
+
 
 
 export const data = [
@@ -144,55 +147,64 @@ export const technologies = [
     name: "Postman",
   },
 ];
-
 export const proyects = [
- 
   {
     name: "App de Viajes",
-    description:
-      "Este proyecto se centra en crear un diseño simple e intuitivo para el usuario, con el objetivo de mejorar mis habilidades en el desarrollo de aplicaciones móviles.",
+    description: "Este proyecto se centra en crear un diseño simple e intuitivo para el usuario, con el objetivo de mejorar mis habilidades en el desarrollo de aplicaciones móviles.",
     image: uiTravel,
     url: "",
     tools: ["Flutter", "Dart"],
     information: [
       {
         video: "https://youtube.com/shorts/5R4qU2HIcB0?feature=share",
-        description:
-          "Este proyecto consiste en implementar un diseño previamente obtenido, con el fin de fortalecer mis habilidades en el desarrollo de aplicaciones. La interfaz se ha creado con especial atención en la simplicidad y la intuición, lo que proporciona una experiencia de usuario fluida y agradable. Al trabajar en este proyecto, he profundizado en el uso de Flutter y Dart para la creación de interfaces de usuario atractivas y funcionales.",
+        description: "Este proyecto consiste en implementar un diseño previamente obtenido, con el fin de fortalecer mis habilidades en el desarrollo de aplicaciones. La interfaz se ha creado con especial atención en la simplicidad y la intuición, lo que proporciona una experiencia de usuario fluida y agradable. Al trabajar en este proyecto, he profundizado en el uso de Flutter y Dart para la creación de interfaces de usuario atractivas y funcionales.",
       },
     ],
   },
-
-
-
-
-
- 
+  {
+    name: "Diseño de Sitio Web plataforma para un colegio",
+    description: "Plataforma web diseñada para gestionar todas las actividades y necesidades de un colegio falta diseño.",
+    image: proyect,  // Asegúrate de que esta línea esté correcta
+    git: "https://github.com/thekevin125/proyec_fronted_school_react.git",
+    url: "https://front-scholl-lopez-895y93ibj-thekevin125s-projects.vercel.app/login",
+    tools: ["React.js", "Tailwind", "JavaScript", "JSX", "FramerMotion"],
+    information: [
+      {
+        image: proyect,  // Aquí también asegúrate de que la imagen sea correcta
+        description: "Diseño que incluye una gran usabilidad para el rol de profesor .",
+      },
+      {
+        image:proyect1,  // Aquí también asegúrate de que la imagen sea correcta
+        description: "login .",
+      },
+    ],
+  },
   {
     name: "Diseño de Sitio Web de Cafetería",
-    description:
-      "Este proyecto consiste en explorar y implementar animaciones, para generar un grado de usabilidad al usuario",
+    description: "Este proyecto consiste en explorar y implementar animaciones, para generar un grado de usabilidad al usuario.",
     image: proyect4_1,
-    git: "https://github.com/kevinS1996buri/cafeteria_designs",
     url: "https://golden-parfait-146ab0.netlify.app",
-    tools: ["React.js", "Tailwind", "JavaScrip", "JSX", "FramerMotion"],
+    tools: ["React.js", "Tailwind", "JavaScript", "JSX", "FramerMotion"],
     information: [
       {
         image: proyect4_1,
-        description: "Diseño que incluye una gran usabilidad para el usuario",
+        description: "Diseño que incluye una gran usabilidad para el usuario.",
       },
       {
         image: proyect4_2,
-        description: "Barra lateral de compras",
+        description: "Barra lateral de compras.",
       },
       {
         image: proyect4_3,
-        description: "100% responsivo",
+        description: "100% responsivo.",
       },
     ],
   },
-  
 ];
+
+  
+  
+
 
 export const information = [
   {
