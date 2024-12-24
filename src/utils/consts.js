@@ -38,7 +38,7 @@ import proyect1 from "../images/nn .png";
 
 
 
-import uiTravel from "../images/travel.png";
+import uiTravel from "../images/sena.png";
 
 
 
@@ -149,15 +149,15 @@ export const technologies = [
 ];
 export const proyects = [
   {
-    name: "App de Viajes",
-    description: "Este proyecto se centra en crear un diseño simple e intuitivo para el usuario, con el objetivo de mejorar mis habilidades en el desarrollo de aplicaciones móviles.",
+    name: "ProjectWizzard-React",
+    description: "Autenticación de Usuarios: Permite a los usuarios y administradores iniciar sesión, registrarse, y recuperar contraseñas,Gestión de Proyectos: Ofrece herramientas para que los administradores filtren, busquen, y revisen proyectos por fecha de subida, estado, y título. Funcionalidades de Usuario: Los usuarios pueden seleccionar plantillas de proyectos, mejorar la redacción con GPT-4, revisar y editar sus proyectos, y descargar sus proyectos en formato PDF o DOCX..",
     image: uiTravel,
-    url: "",
-    tools: ["Flutter", "Dart"],
+    
+    url: "https://project-wizzard-react-neukkkens-projects.vercel.app/login",
+    tools: ["React.js", "Tailwind", "JavaScript", "JSX"],
     information: [
       {
-        video: "https://youtube.com/shorts/5R4qU2HIcB0?feature=share",
-        description: "Este proyecto consiste en implementar un diseño previamente obtenido, con el fin de fortalecer mis habilidades en el desarrollo de aplicaciones. La interfaz se ha creado con especial atención en la simplicidad y la intuición, lo que proporciona una experiencia de usuario fluida y agradable. Al trabajar en este proyecto, he profundizado en el uso de Flutter y Dart para la creación de interfaces de usuario atractivas y funcionales.",
+        description: "Autenticación de Usuarios: Permite a los usuarios y administradores iniciar sesión, registrarse, y recuperar contraseñas,Gestión de Proyectos: Ofrece herramientas para que los administradores filtren, busquen, y revisen proyectos por fecha de subida, estado, y título. Funcionalidades de Usuario: Los usuarios pueden seleccionar plantillas de proyectos, mejorar la redacción con GPT-4, revisar y editar sus proyectos, y descargar sus proyectos en formato PDF o DOCXEste proyecto consiste en implementar un diseño previamente obtenido, con el fin de fortalecer mis habilidades en el desarrollo de aplicaciones. La interfaz se ha creado con especial atención en la simplicidad y la intuición, lo que proporciona una experiencia de usuario fluida y agradable. Al trabajar en este proyecto, he profundizado en el uso de Flutter y Dart para la creación de interfaces de usuario atractivas y funcionales.",
       },
     ],
   },
