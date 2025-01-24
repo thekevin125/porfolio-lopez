@@ -103,10 +103,7 @@ export const technologies = [
     icon: react,
     name: "ReactJS",
   },
-  {
-    icon: reactNative,
-    name: "React Native",
-  },
+
   {
     icon: expo,
     name: "Expo",
