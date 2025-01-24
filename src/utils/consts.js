@@ -15,7 +15,6 @@ import {
 import css3 from "../images/css3.png";
 import git from "../images/git.png";
 import html5 from "../images/html5.png";
-import reactNative from "../images/reactNative.png";
 import javascript from "../images/javascript.png";
 import mysql from "../images/mysql.png";
 import nest from "../images/nest.png";

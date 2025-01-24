@@ -16,3 +16,4 @@ export const navbarSlice = createSlice({
   },
 });
 
+export const { navbarStatus, widthSizeStatus } = navbarSlice.actions;
