@@ -4,18 +4,40 @@ import { information } from "../../utils/consts";
 import SectionTitle from "../sectionTitle/SectionTitle";
 import { useSelector } from "react-redux";
 
+// Componente para los campos de entrada
+const InputField = ({ label, type, name, value, onChange, placeholder }) => (
+  <div className="flex-1 mr-2">
+    <h2>{label}</h2>
+    <input
+      type={type}
+      name={name}
+      value={value}
+      onChange={onChange}
+      className="outline-none p-1 shadow-sm dark:bg-slate-300 dark:text-black w-full"
+      placeholder={placeholder}
+    />
+  </div>
+);
+
 const Contac = () => {
   const currentColor = useSelector((state) => state.color.currentColor);
 
   const [user, setUser] = useState({
     name: "",
     email: "",
-    phone: "",
     message: "",
   });
 
   const [statusMessage, setStatusMessage] = useState("");
   const [stateColor, setStateColor] = useState("");
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -48,11 +70,12 @@ const Contac = () => {
     <div className="pb-48 dark:text-cyan-100" id="CONTACTO">
       <SectionTitle title={"CONTACTO"} />
 
-      <div className="flex md:px-6 ">
-        <div className=" w-1/12 lg:w-3/12 hidden  mx-4 lg:flex flex-col gap-2 px-8 pt-3  shadow-xl dark:shadow-md">
+      <div className="flex md:px-6">
+        {/* Información de contacto */}
+        <div className="w-1/12 lg:w-3/12 hidden mx-4 lg:flex flex-col gap-2 px-8 pt-3 shadow-xl dark:shadow-md">
           {information.map((item, index) => (
             <div key={index} className="flex items-center gap-2">
-              <div>{item.icon} </div>
+              <div>{item.icon}</div>
               <div>
                 <h2>{item.name}:</h2>
                 <h3>{item.detail}</h3>
@@ -60,62 +83,52 @@ const Contac = () => {
             </div>
           ))}
         </div>
-        <div className="flex-1  md:mx-4 px-8 pt-3 shadow-xl dark:shadow-md">
-          <form className=" px-2 flex flex-col" onSubmit={sendEmail}>
+
+        {/* Formulario de contacto */}
+        <div className="flex-1 md:mx-4 px-8 pt-3 shadow-xl dark:shadow-md">
+          <form className="px-2 flex flex-col" onSubmit={sendEmail}>
+            {/* Mensaje de estado */}
             <h2
-              className={` p-2 font-sansSerif font-semibold ${
+              className={`p-2 font-sansSerif font-semibold ${
                 stateColor ? stateColor : "invisible"
-              } bg-red-500 `}
+              } bg-red-500`}
             >
               {statusMessage}
             </h2>
 
             <div className="flex w-full">
-              <div className="flex-1 mr-2">
-                <h2>Nombre</h2>
-                <input
-                  type={"text"}
-                  value={user.name}
-                  onChange={(e) => setUser({ ...user, name: e.target.value })}
-                  name="user_name"
-                  className="outline-none p-1 shadow-sm dark:bg-slate-300 dark:text-black w-full"
-                  placeholder="nombre"
-                />
-                <h3
-                  className={`text-red-400 text-sm ${
-                    user.name ? "invisible" : ""
-                  }`}
-                >
-                  * Campo obligatorio
-                </h3>
-              </div>
-              <div className="flex-1 ">
-                <h2>Email</h2>
-                <input
-                  type={"email"}
-                  value={user.email}
-                  onChange={(e) => setUser({ ...user, email: e.target.value })}
-                  name="user_email"
-                  className="outline-none p-1 shadow-sm dark:bg-slate-300 dark:text-black w-full "
-                  placeholder="Email"
-                />
-                <h3
-                  className={`text-red-400 text-sm ${
-                    user.email ? "invisible" : ""
-                  }`}
-                >
-                  * Campo obligatorio
-                </h3>
-              </div>
+              {/* Campo Nombre */}
+              <InputField
+                label="Nombre"
+                type="text"
+                name="name"
+                value={user.name}
+                onChange={handleChange}
+                placeholder="nombre"
+              />
+
+              {/* Campo Email */}
+              <InputField
+                label="Email"
+                type="email"
+                name="email"
+                value={user.email}
+                onChange={handleChange}
+                placeholder="Email"
+              />
             </div>
 
-            <h2>Mensaje</h2>
-            <textarea
-              name="message"
-              value={user.message}
-              onChange={(e) => setUser({ ...user, message: e.target.value })}
-              className="outline-none p-1 shadow-sm dark:bg-slate-300 dark:text-black w-full h-52"
-            />
+            {/* Campo Mensaje */}
+            <div>
+              <h2>Mensaje</h2>
+              <textarea
+                name="message"
+                value={user.message}
+                onChange={handleChange}
+                className="outline-none p-1 shadow-sm dark:bg-slate-300 dark:text-black w-full h-52"
+              />
+            </div>
+
             <h3
               className={`text-red-400 text-sm ${
                 user.message ? "invisible" : ""
@@ -123,10 +136,11 @@ const Contac = () => {
             >
               * Campo obligatorio
             </h3>
+
+            {/* Botón Enviar */}
             <button
               type="submit"
-              value={"message"}
-              className={` py-2  mt-2 mb-6 text-white ${currentColor?.bg}`}
+              className={`py-2 mt-2 mb-6 text-white ${currentColor?.bg}`}
             >
               Enviar
             </button>
