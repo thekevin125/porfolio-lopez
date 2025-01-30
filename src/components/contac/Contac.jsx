@@ -21,12 +21,14 @@ const Contac = () => {
 
     if (user.name.trim() && user.email.trim() && user.message.trim()) {
       emailjs
-        .sendForm(
-          "service_m0nuv0j",
-          "template_df8qtu8",
-          e.target,
-          "dkoNdWza_358lLx1w"
-        )
+      .sendForm(
+        "service_p22k94k", // Nuevo Service ID
+        "template_u6rbu98", // Nuevo Template ID
+        e.target,
+        "CEBROxwJvYpoGAiPq" // Nueva Public Key
+      )
+    
+      
         .then(
           (result) => {
             setStatusMessage("Mensaje enviado con exito");
