@@ -3,6 +3,7 @@ import emailjs from "@emailjs/browser";
 import { information } from "../../utils/consts";
 import SectionTitle from "../sectionTitle/SectionTitle";
 import { useSelector } from "react-redux";
+
 const Contac = () => {
   const currentColor = useSelector((state) => state.color.currentColor);
 
@@ -21,17 +22,15 @@ const Contac = () => {
 
     if (user.name.trim() && user.email.trim() && user.message.trim()) {
       emailjs
-      .sendForm(
-        "service_p22k94k", // Nuevo Service ID
-        "template_u6rbu98", // Nuevo Template ID
-        e.target,
-        "CEBROxwJvYpoGAiPq" // Nueva Public Key
-      )
-    
-      
+        .sendForm(
+          "service_p22k94k", // Nuevo Service ID
+          "template_x80ypca", // Nuevo Template ID
+          e.target,
+          "CEBROxwJvYpoGAiPq" // Nueva Public Key
+        )
         .then(
           (result) => {
-            setStatusMessage("Mensaje enviado con exito");
+            setStatusMessage("Mensaje enviado con éxito");
             setStateColor("bg-blue-500");
           },
           (error) => {
