@@ -38,22 +38,31 @@ const Contac = () => {
       [name]: value,
     }));
   };
-
   const sendEmail = (e) => {
     e.preventDefault();
-
+  
     if (user.name.trim() && user.email.trim() && user.message.trim()) {
+      const templateParams = {
+        to_name: "Destinatario",
+        user_name: user.name,
+        user_email: user.email, // Aquí está el correo del remitente
+        message: user.message,
+      };
+  
+      console.log("Datos enviados a EmailJS:", templateParams); // Verifica si user_email está presente
+  
       emailjs
-        .sendForm(
-          "service_p22k94k", // Nuevo Service ID
-          "template_x80ypca", // Nuevo Template ID
-          e.target,
-          "CEBROxwJvYpoGAiPq" // Nueva Public Key
+        .send(
+          "service_p22k94k", // Service ID
+          "template_3jxvy2f", // Template ID
+          templateParams,
+          "CEBROxwJvYpoGAiPq" // Public Key
         )
         .then(
           (result) => {
             setStatusMessage("Mensaje enviado con éxito");
             setStateColor("bg-blue-500");
+            setUser({ name: "", email: "", message: "" }); // Limpiar el formulario tras el envío
           },
           (error) => {
             setStatusMessage("Se ha producido un error");
@@ -65,6 +74,8 @@ const Contac = () => {
       setStateColor("bg-yellow-500");
     }
   };
+  
+  
 
   return (
     <div className="pb-48 dark:text-cyan-100" id="CONTACTO">
@@ -99,17 +110,17 @@ const Contac = () => {
             <div className="flex w-full">
               {/* Campo Nombre */}
               <InputField
-                label="Nombre"
+                label="correo"
                 type="text"
                 name="name"
                 value={user.name}
                 onChange={handleChange}
-                placeholder="nombre"
+                placeholder="Nombre"
               />
 
               {/* Campo Email */}
               <InputField
-                label="Email"
+                label="confirmacion de correo"
                 type="email"
                 name="email"
                 value={user.email}
@@ -120,7 +131,8 @@ const Contac = () => {
 
             {/* Campo Mensaje */}
             <div>
-              <h2>Mensaje</h2>
+              <h2>Mensaje
+              </h2>
               <textarea
                 name="message"
                 value={user.message}
