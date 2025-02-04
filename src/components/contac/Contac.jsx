@@ -110,7 +110,7 @@ const Contac = () => {
             <div className="flex w-full">
               {/* Campo Nombre */}
               <InputField
-                label="correo"
+                label="nombre"
                 type="text"
                 name="name"
                 value={user.name}
@@ -120,7 +120,7 @@ const Contac = () => {
 
               {/* Campo Email */}
               <InputField
-                label="confirmacion de correo"
+                label=" correo"
                 type="email"
                 name="email"
                 value={user.email}
